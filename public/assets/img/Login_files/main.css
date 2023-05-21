@@ -1,0 +1,201 @@
+/* ****************************************************************font family**************************************************************** */
+
+@font-face {
+    font-family: AvenirNextWorld;
+    src: url(../webfonts/AvenirNextWorld-Regular.otf);
+}
+
+.AvenirNextWorld {
+    font-family: AvenirNextWorld;
+
+}
+
+/* ****************************************************************font size**************************************************************** */
+.f35 {
+    font-size: 35px;
+}
+
+.f18 {
+    font-size: 18px;
+}
+
+.f16 {
+    font-size: 16px;
+}
+
+.f14 {
+    font-size: 14px;
+}
+
+.f20 {
+    font-size: 20px;
+}
+
+.f21 {
+    font-size: 21px;
+}
+
+.f28 {
+    font-size: 28px;
+}
+
+.f34 {
+    font-size: 34px;
+}
+
+/* ****************************************************************colors**************************************************************** */
+.orang_color {
+    color: #f87802;
+}
+
+.orng_color {
+    color: #ff4b20
+}
+
+.deep_grey {
+    color: #413f3f
+}
+
+.grey_color {
+    color: #646464
+}
+
+.black_color {
+    color: #000000
+}
+.blue_bg{
+    background-color: #0f62f9;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+}
+
+/* ****************************************************************font wheight**************************************************************** */
+
+.fw_700 {
+    font-weight: 700;
+}
+
+.nav-link {
+    color: #000000 !important;
+}
+
+.active>.nav-link {
+    color: #0f62f9 !important
+}
+
+/* ****************************************************************border radius**************************************************************** */
+.br_20 {
+    border-radius: 20px !important;
+}
+
+.back_img_0 {
+    background-image: url(../assets/img/h3_banner1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.back_img_1 {
+    background-image: url(../assets/img/h2-img2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.back_img_2 {
+    background-image: url(../assets/img/h3_banner2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.back_img_3 {
+    background-image: url(../assets/img/h3_banner4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.back_img_4 {
+    background-image: url(../assets/img/h3_banner5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.back_img_5 {
+    background-image: url(../assets/img/h3_banner6.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.my_account_back_img{
+    background-image: url(../assets/img/breadcrum-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.shop_now_btn {
+    padding: .8rem 3.5rem !important;
+    border-radius: 8px !important;
+    background-color: #0f62f9 !important;
+}
+
+.arrow {
+    border: solid #ffffff;
+    border-width: 0 2.5px 2.5px 0;
+    display: inline-block;
+    padding: 2.5px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.swiper-slide {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    height: fit-content !important;
+    border-radius: 10px;
+}
+.basket_cart_container{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0f62f94f;
+    border-radius: 50%;
+}
+.basket_cart{
+    width: 26px;
+    height: 26px;
+}
+.user_img{
+    width:20px;
+    height:20px;
+}
+.badge{
+    position: absolute;
+    right: 0;
+    left: 0;
+    transform: translate(0%, 50%);
+}
+.border_right{
+    border-right: 1px solid #0f62f9;
+}
+.my_account{
+    min-height: 250px;
+}
+input.form-control{
+    height: 53px !important;
+}
+a{
+    text-decoration: unset !important;
+}
+.login{
+    border: 1px solid #e7e7e7;
+    border-radius: 10px;
+}
