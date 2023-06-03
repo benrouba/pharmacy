@@ -49,6 +49,7 @@
                             </tbody>
                         </table>
                     </div>
+                    @include('upload.form')
                 </div>
                 <div class="col-md-4 h-100 basket_container">
                     <div class="p-4">
@@ -98,6 +99,12 @@
     <script src="https://kit.fontawesome.com/df2a0808c5.js" crossorigin="anonymous"></script>
     <script>
         var product_array = JSON.parse(localStorage.getItem('product_array'));
+        const found = product_array.some(el => el.need_presecription === 0);
+        product_array.forEach(element => {
+            console.log(element.need_presecription);
+        });
+
+        console.log(found);
         var sub_total = 0;
         append();
 
@@ -109,17 +116,20 @@
                 value.sub_total = value.price * value.qnt;
                 sub_total += value.sub_total;
                 $('#exampleid').append("<tr class='clickable'>\
-                                        										<td><img class='img_product' src=/uploads/" + value.image_name +" alt=''> " + "</td>\
-                                        										<td class='AvenirNextWorld f14 black_color'>" + value.title + "</td>\
-                                        										<td class='AvenirNextWorld f14 black_color'>" + value.price + " DZ </td>\
-                                        										<td class='AvenirNextWorld f14 black_color'>" + value.qnt + "</td>\
-                                        										<td class='AvenirNextWorld f14 black_color'>" + value.sub_total +" DZ </td>\
-                                        										<td class='AvenirNextWorld f14 black_color'>\
-                                                                                    <button class='btn p-0 delete_item' id='delete_item' value=" +value.id + ">\
-                                                                                        <i aria-hidden='true'  class='melawell-icon- melawell-icon-trash blue_color'></i>\
-                                                                                    </button> \
-                                                                                </td>\
-                                        </tr>");
+                                                										<td><img class='img_product' src=/uploads/products/>" + value.image_name +
+                    " alt=''> " + "</td>\
+                                                										<td class='AvenirNextWorld f14 black_color'>" + value.title + "</td>\
+                                                										<td class='AvenirNextWorld f14 black_color'>" + value.price + " DZ </td>\
+                                                										<td class='AvenirNextWorld f14 black_color'>" + value.qnt + "</td>\
+                                                										<td class='AvenirNextWorld f14 black_color'>" + value.sub_total +
+                    " DZ </td>\
+                                                										<td class='AvenirNextWorld f14 black_color'>\
+                                                                                            <button class='btn p-0 delete_item' id='delete_item' value=" +
+                    value.id + ">\
+                                                                                                <i aria-hidden='true'  class='melawell-icon- melawell-icon-trash blue_color'></i>\
+                                                                                            </button> \
+                                                                                        </td>\
+                                                </tr>");
             })
         }
         $('#sub-total').text(sub_total + ' DZ');
@@ -131,23 +141,35 @@
             append();
         });
         $('#submit_order').click(function($event) {
-            if ( {!! str_replace("'", "\'", json_encode(Auth::user())) !!}) {
-                $.ajax({
-                    url: '/place_order',
-                    type: 'POST',
-                    data: {
-                        data: product_array,
-
-                    },
-                    success: function(response) {
+            if ({!! str_replace("'", "\'", json_encode(Auth::user())) !!}) {
+                var form = document.getElementById('myForm');
+                var formData = new FormData(form);
+                formData.append('data', JSON.stringify(product_array));
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/place_order', true);
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
                         console.log("success");
                         localStorage.removeItem('product_array');
                         window.location.href = "/order_confirmed";
-                    },
-                    error: function(error) {
+                    } else {
                         console.log("error");
                     }
-                });
+                };
+                xhr.send(formData);
+                // $.ajax({
+                //     url: '/place_order',
+                //     type: 'POST',
+                //     data: {
+                //         data: formData,
+                //     },
+                //     success: function(response) {
+
+                //     },
+                //     error: function(error) {
+
+                //     }
+                // });
             } else {
                 window.location.href = "/login"
             }

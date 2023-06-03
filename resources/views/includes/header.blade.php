@@ -10,7 +10,7 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav f16">
                 <li class="nav-item ml-1 {{ request()->is('/') ? 'active' : '' }}">
                     <a class="nav-link AvenirNextWorld " href="/#">Accueil <span
@@ -37,7 +37,21 @@
                     </li>
                 @endif
             </ul>
-            <div class="ml-auto">
+            <form class="mb-0" action="{{ route('products') }}" method="POST">
+                @csrf
+                <div class="searchBox">
+                    <input class="searchInput"type="text"  name="search" value="{{ request('search') }}"class=" AvenirNextWorld f16" placeholder="Rechercher un médicament">
+                    <button class="searchButton" href="#">
+                        <i aria-hidden="true" class="f25 melawell-icon-search"></i>
+                    </button>
+                </div>
+                {{-- <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Recharcher a..." aria-label="Search for..."
+                        aria-describedby="btnNavbarSearch" />
+
+                </div> --}}
+            </form>
+            <div class="">
                 <div class="d-flex align-items-center">
                     <a href="/cart" class="d-flex pr-3 border_right align-items-center">
                         <i aria-hidden="true" class="f25 melawell-icon-shopping-cart black_color mr-1"></i>
@@ -55,12 +69,15 @@
                             {{ Auth::user() ? Auth::user()->name . ' ' . Auth::user()->family_name : 'Mon compte' }}
                         </div>
                         <div class="login_right hc_tma_text ">
-                            <a class="login_line" href="/login" rel="nofollow" title="Log in to your customer account">
-                                Connexion
-                            </a> <span class="hidden1024down">/ </span>
-                            <a class="login_line" href="/register" rel="nofollow" title="Create new account">
-                                Creer un compte
-                            </a>
+
+                            <!-- في حالة المستخدم مسجل الدخول -->
+                            @if (Auth::check())
+                                <a href="{{ route('user.logout') }}">Déconnexion</a>
+                            @else
+                                <a href="{{ route('login') }}">Connexion</a><span class="hidden1024down"> / </span>
+                                <a href="{{ route('register') }}">Creer un compte</a>
+                            @endif
+
                         </div>
                     </div>
                 </div>

@@ -2,29 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 use DB;
-class place_order_controller extends Controller
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
+class place_order_controller extends Controller
 {
-    public function place_order_controller (Request $request){
-        $productArray = $request->input('data');
+    public function place_order_controller(Request $request)
+    {
+        if ($request->file('prescription_image')) {
+            $uploadedFile = $request->file('prescription_image');
+            $photoPath = $uploadedFile->store('products', 'public');
+            $photoPath = explode('/', $photoPath)[1];
+        }
+        $productArray = json_decode($request->input('data'));
         $date = Carbon::now();
-        // return response()->json(['message' => 'Data received and processed successfully']);
         {
             $total = 0;
             foreach ($productArray as $product) {
-                $total += $product['price'] * $product['qnt'];
+                $total += $product->price * $product->qnt;
             }
             $total = $total + 400;
             $data = array(
-                'items' =>json_encode($productArray),
+                'items' => json_encode($productArray),
                 'user_id' => Auth::user()->id,
-                'date'=> $date,
+                'date' => $date,
                 'amount' => $total,
                 'address' => Auth::user()->address,
+                'prescription_path' => $request->file('prescription_image') ? $photoPath : "",
             );
             try {
                 $response = DB::table('medecines_orders')->insert($data);

@@ -23,10 +23,17 @@
         <div class="my_account_back_img">
             <div class="container">
                 <div class="my_account d-flex align-items-center">
-                    <span class="AvenirNextWorld f35 black_color fw_700">Order Confirmed
+                    <span class="AvenirNextWorld f35 black_color fw_700">Commande confirmée
                     </span>
                 </div>
             </div>
+        </div>
+        <div class="container my-5 text-center">
+            <img src="{{asset('assets/img/100858-success.gif') }}" alt="">
+            <p class="AvenirNextWorld f25 grey grey_color text-center mt-3 mb-5">
+                Votre commande a été confirmée avec succès. Vous recevrez un appel de notre équipe pour confirmer votre
+                commande.
+            </p>
         </div>
     </section>
 

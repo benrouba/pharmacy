@@ -24,8 +24,8 @@
                 <div class="col-md-6">
                     <div class="product-img">
                         <div class="easyzoom easyzoom--overlay">
-                            <a href="{{ asset('uploads/' . $product[0]->image_name) }}">
-                                <img src="{{ asset('uploads/' . $product[0]->image_name) }}" alt=""
+                            <a href="{{ asset('uploads/products/' . $product[0]->image_name) }}">
+                                <img src="{{ asset('uploads/products/' . $product[0]->image_name) }}" alt=""
                                     width="100%" height="100%" />
                             </a>
                         </div>

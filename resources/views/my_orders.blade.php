@@ -44,7 +44,7 @@
                                         <div class="pl-3 mb-3">
                                             <a href="" class="black_color avenit AvenirNextWorld f17 custom_hyper">
                                                 <span class="mr-2">{{ $item->qnt }} </span>
-                                                <img src="/uploads/{{ $item->image_name }}" alt=""
+                                                <img src="/uploads/products/{{ $item->image_name }}" alt=""
                                                     class="mr-2 item_img">
                                                 <span class="Medium f15 black mr-2">{{ $item->title }} </span>
                                                 <span class="mr-2">{{ $item->price }} DZ</span>

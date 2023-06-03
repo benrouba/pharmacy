@@ -12,8 +12,6 @@
     <link rel="shortcut icon" href="{{ asset('assets/img/logo.svg') }}" type="image/x-ico  n">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
 
-
-
 </head>
 
 <body>
@@ -40,9 +38,6 @@
                               <div class="input-group">
                                 <input type="search" class="form-control" placeholder="Recherche un produit" name="search" value="{{ request('search') }}">
 
-                                    <button type="submit" class="btn1 btn-primary">
-                                  <i class="fa-solid fa-magnifying-glass" style="font-size:25px;margin-top:8px;margin-right:70px;"></i>
-                                         </button>
                               </div>
                             </form>
                           </div>
@@ -66,7 +61,7 @@
                         @foreach ($products as $medecine)
                             <div class="col-md-4">
                                 <a href='product/{{$medecine->id}}' class="swiper-slide p-3">
-                                    <img src="{{ asset('uploads/' . $medecine->image_name) }}" alt=""
+                                    <img src="{{ asset('uploads/products/' . $medecine->image_name) }}" alt=""
                                         class="w-100">
                                     <div class="black_color f18 AvenirNextWorld fw_700"> {{ $medecine->title }}</div>
                                     <div class="d-flex justify-content-between mt-2 align-items-center">

@@ -13,6 +13,12 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
        "custom-login",
-       "place_order"
+       "place_order",
+       "edit_product",
+       "add_product",
+       "edit_category",
+       "add_category",
+       "delete_category",
+       "delete_product",
     ];
 }

@@ -12,10 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="shortcut icon" href="{{asset('assets/img/logo.svg')}}" type="image/x-icon">
 </head>
-
 <body>
     @include('includes.header')
-
     <section>
         <div class="container mt-3">
             <div class="row">
@@ -25,7 +23,7 @@
                         <p class="black_color AvenirNextWorld f34 mt-3">Équipement médical</p>
                         <div class="grey_color f18 AvenirNextWorld mt-3"> Remise week-end</div>
                         <div class="orng_color f28 AvenirNextWorld fw_700"> DZ 299.00</div>
-                        <button class="btn text-white f16 AvenirNextWorld shop_now_btn mt-4 mr-2">Shop Now <i
+                        <button class="btn text-white f16 AvenirNextWorld shop_now_btn mt-4 mr-2">Achetez maintenant <i
                                 class="arrow right"></i></button>
                     </div>
                 </div>
@@ -87,7 +85,7 @@
                 <div class="swiper-wrapper">
                     @foreach ($medecines as $medecine)
                         <a href="product/{{ $medecine->id }}" class="swiper-slide p-3">
-                            <img src="{{ asset('uploads/' . $medecine->image_name) }}" alt="" class="w-100">
+                            <img src="{{ asset('uploads/products/' . $medecine->image_name) }}" alt="" class="w-100">
                             <div class="black_color f18 AvenirNextWorld fw_700"> {{ $medecine->title }}</div>
                             <div class="d-flex justify-content-between mt-2 align-items-center">
                                 <div class=" f15 AvenirNextWorld fw_700"> <span
@@ -151,7 +149,7 @@
                         </div>
 
                     </div>
-                </div>
+                 </div>
                 <div class="col-md-3 text-center">
                     <div class="elementor-icon-wrapper py-5">
                         <div class="elementor-icon">
@@ -298,7 +296,6 @@
                           <button class="btn text-white f16 AvenirNextWorld shop_now_btn mb-1">S'inscrire</button>
                         </div>
 
-
                       </form>
                 </div>
             </div>
@@ -322,5 +319,4 @@
     <script src="{{ asset('js/main.js') }}"></script>
 
 </body>
-
 </html>
